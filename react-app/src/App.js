@@ -38,6 +38,9 @@ import ComponentC from './components/ComponentC';
 import { UserProvider } from './components/userContext';
 import PostList from './httpcomponent/PostList';
 import PostForm from './httpcomponent/PostForm';
+import ClassCounter from './hookComponent/ClassCounter';
+import HookCounter from './hookComponent/HookCounter';
+import HookCounterTwo from './hookComponent/HookCounterTwo';
 
 // function App() {
 //   return (
@@ -65,8 +68,18 @@ class App extends Component {
     return (
       <div className='App'>
 
+        {/* Hooks */}
+
+        <HookCounterTwo />
+        {/* <HookCounter /> */}
+        {/* <ClassCounter /> */}
+
+
+
+
+
         {/* Post request */}
-        <PostForm />
+        {/* <PostForm /> */}
 
         {/* Get request */}
         {/* <PostList /> */}
