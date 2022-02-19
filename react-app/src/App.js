@@ -34,6 +34,10 @@ import ClickCounterTwo from './components/ClickCounterTwo';
 import HoverCounterTwo from './components/HoverCounterTwo';
 import User from './components/User';
 import CounterRenderProp from './components/CounterRenderProp';
+import ComponentC from './components/ComponentC';
+import { UserProvider } from './components/userContext';
+import PostList from './httpcomponent/PostList';
+import PostForm from './httpcomponent/PostForm';
 
 // function App() {
 //   return (
@@ -61,6 +65,17 @@ class App extends Component {
     return (
       <div className='App'>
 
+        {/* Post request */}
+        <PostForm />
+
+        {/* Get request */}
+        {/* <PostList /> */}
+
+        {/* <UserProvider value="Akriti">
+          <ComponentC />
+        </UserProvider> */}
+
+
         {/* ClickCounterTwo and HoverCounterTwo are Render Props
         The count state and incrementCount method from CounterRenderProp component are passed as
         props to ClickCounterTwo and HoverCounterTwo component
@@ -81,7 +96,7 @@ class App extends Component {
         /> */}
 
         {/* if render is not used */}
-        <CounterRenderProp>
+        {/* <CounterRenderProp>
           {(count, incrementCount) => (
             <ClickCounterTwo count={count} incrementCount={incrementCount} />
           )}
@@ -90,7 +105,7 @@ class App extends Component {
           {(count, incrementCount) => (
             <HoverCounterTwo count={count} incrementCount={incrementCount} />
           )}
-        </CounterRenderProp>
+        </CounterRenderProp> */}
 
         {/* <ClickCounterTwo />
         <HoverCounterTwo />
