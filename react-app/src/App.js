@@ -51,6 +51,9 @@ import MouseContainer from './hookComponent/MouseContainer';
 import IntervalClassCounter from './hookComponent/IntervalClassCounter';
 import IntervalHookCounter from './hookComponent/IntervalHookCounter';
 import DataFetching from './hookComponent/DataFetching';
+import CounterOne from './hookComponent/CounterOne';
+import CounterTwo from './hookComponent/CounterTwo';
+import CounterThree from './hookComponent/CounterThree';
 
 // function App() {
 //   return (
@@ -83,12 +86,18 @@ class App extends Component {
 
         {/* Hooks */}
 
+        {/* useReducer */}
+        <CounterThree />
+        {/* <CounterTwo /> */}
+        {/* <CounterOne /> */}
+
         {/* useContext */}
-        <UserContext.Provider value="Akriti">
+
+        {/* <UserContext.Provider value="Akriti">
           <ChannelContext.Provider value={'Codevolution'}>
             <ComponentC />
           </ChannelContext.Provider>
-        </UserContext.Provider>
+        </UserContext.Provider> */}
 
         {/* useEffect */}
 
