@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UserContext, { UserConsumer } from './userContext'
-
+import { ChannelContext } from '../App'
 class ComponentF extends Component {
     render() {
         return (
@@ -12,8 +12,22 @@ class ComponentF extends Component {
                     //accepting context value as a parameter and
                     //it can be used within the function body to
                     //return a react element
+                    // (username) => {
+                    //     return <div>Hello {username}</div>
+                    // }
+
+                    //Multiple context
+
                     (username) => {
-                        return <div>Hello {username}</div>
+                        return (
+                            <ChannelContext.Consumer>
+                                {
+                                    (channel) => {
+                                        return <div>User context value {username}, channel context value {channel}</div>
+                                    }
+                                }
+                            </ChannelContext.Consumer>
+                        )
                     }
                 }
             </UserConsumer>

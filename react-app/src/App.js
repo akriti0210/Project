@@ -35,12 +35,22 @@ import HoverCounterTwo from './components/HoverCounterTwo';
 import User from './components/User';
 import CounterRenderProp from './components/CounterRenderProp';
 import ComponentC from './components/ComponentC';
-import { UserProvider } from './components/userContext';
+import UserContext, { UserProvider } from './components/userContext';
 import PostList from './httpcomponent/PostList';
 import PostForm from './httpcomponent/PostForm';
 import ClassCounter from './hookComponent/ClassCounter';
 import HookCounter from './hookComponent/HookCounter';
 import HookCounterTwo from './hookComponent/HookCounterTwo';
+import HookCounterThree from './hookComponent/HookCounterThree';
+import HookCounterFour from './hookComponent/HookCounterFour';
+import ClassCounterOne from './hookComponent/ClassCounterOne';
+import HookCounterOne from './hookComponent/HookCounterOne';
+import ClassMouse from './hookComponent/ClassMouse';
+import HookMouse from './hookComponent/HookMouse';
+import MouseContainer from './hookComponent/MouseContainer';
+import IntervalClassCounter from './hookComponent/IntervalClassCounter';
+import IntervalHookCounter from './hookComponent/IntervalHookCounter';
+import DataFetching from './hookComponent/DataFetching';
 
 // function App() {
 //   return (
@@ -63,6 +73,9 @@ import HookCounterTwo from './hookComponent/HookCounterTwo';
 //   );
 // }
 
+// useContext() hook
+export const ChannelContext = React.createContext()
+
 class App extends Component {
   render() {
     return (
@@ -70,7 +83,30 @@ class App extends Component {
 
         {/* Hooks */}
 
-        <HookCounterTwo />
+        {/* useContext */}
+        <UserContext.Provider value="Akriti">
+          <ChannelContext.Provider value={'Codevolution'}>
+            <ComponentC />
+          </ChannelContext.Provider>
+        </UserContext.Provider>
+
+        {/* useEffect */}
+
+        {/* <DataFetching /> */}
+        {/* <IntervalHookCounter /> */}
+        {/* <IntervalClassCounter /> */}
+        {/* <MouseContainer /> */}
+        {/* <HookMouse /> */}
+        {/* <ClassMouse /> */}
+        {/* <HookCounterOne /> */}
+        {/* <ClassCounterOne /> */}
+
+
+        {/* useState */}
+
+        {/* <HookCounterFour /> */}
+        {/* <HookCounterThree /> */}
+        {/* <HookCounterTwo /> */}
         {/* <HookCounter /> */}
         {/* <ClassCounter /> */}
 
