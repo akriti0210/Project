@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useReducer } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Greet from './components/Greet';
@@ -54,6 +54,9 @@ import DataFetching from './hookComponent/DataFetching';
 import CounterOne from './hookComponent/CounterOne';
 import CounterTwo from './hookComponent/CounterTwo';
 import CounterThree from './hookComponent/CounterThree';
+import ComponentAHook from './hookComponent/ComponentAHook';
+import ComponentBHook from './hookComponent/ComponentBHook';
+import ComponentCHook from './hookComponent/ComponentCHook';
 
 // function App() {
 //   return (
@@ -79,15 +82,44 @@ import CounterThree from './hookComponent/CounterThree';
 // useContext() hook
 export const ChannelContext = React.createContext()
 
-class App extends Component {
-  render() {
-    return (
-      <div className='App'>
+// useReducer with useContext
 
+export const CountContext = React.createContext()
+const inintialState = 0
+const reducer = (state, action) => {
+  switch (action) {
+    case 'increment':
+      return state + 1
+    case 'decrement':
+      return state - 1
+    case 'reset':
+      return inintialState
+    default:
+      return state
+  }
+}
+
+//Hooks
+
+function App() {
+  const [count, dispatch] = useReducer(reducer, inintialState)
+  return (
+    <CountContext.Provider
+      value={{ countState: count, countDispatch: dispatch }}
+    >
+      <div className='App'>
         {/* Hooks */}
 
+        {/* useReducer with useContext
+        to share the data between components 
+        Global state management*/}
+        Count- {count}
+        <ComponentAHook />
+        <ComponentBHook />
+        <ComponentCHook />
+
         {/* useReducer */}
-        <CounterThree />
+        {/* <CounterThree /> */}
         {/* <CounterTwo /> */}
         {/* <CounterOne /> */}
 
@@ -118,30 +150,38 @@ class App extends Component {
         {/* <HookCounterTwo /> */}
         {/* <HookCounter /> */}
         {/* <ClassCounter /> */}
+      </div>
+    </CountContext.Provider>
+  )
+}
 
 
 
+// class App extends Component {
+//   render() {
+//     return (
+//       <div className='App'>
 
 
-        {/* Post request */}
-        {/* <PostForm /> */}
+{/* Post request */ }
+{/* <PostForm /> */ }
 
-        {/* Get request */}
-        {/* <PostList /> */}
+{/* Get request */ }
+{/* <PostList /> */ }
 
-        {/* <UserProvider value="Akriti">
+{/* <UserProvider value="Akriti">
           <ComponentC />
         </UserProvider> */}
 
 
-        {/* ClickCounterTwo and HoverCounterTwo are Render Props
+{/* ClickCounterTwo and HoverCounterTwo are Render Props
         The count state and incrementCount method from CounterRenderProp component are passed as
         props to ClickCounterTwo and HoverCounterTwo component
 
         The ClickCounterTwo and HoverCounterTwo make use of
         passed in props to render actual UI */}
 
-        {/* if render is used
+{/* if render is used
         <CounterRenderProp
           render={(count, incrementCount) => (
             <ClickCounterTwo count={count} incrementCount={incrementCount} />
@@ -153,8 +193,8 @@ class App extends Component {
           )}
         /> */}
 
-        {/* if render is not used */}
-        {/* <CounterRenderProp>
+{/* if render is not used */ }
+{/* <CounterRenderProp>
           {(count, incrementCount) => (
             <ClickCounterTwo count={count} incrementCount={incrementCount} />
           )}
@@ -165,15 +205,15 @@ class App extends Component {
           )}
         </CounterRenderProp> */}
 
-        {/* <ClickCounterTwo />
+{/* <ClickCounterTwo />
         <HoverCounterTwo />
         <User name={(isLoggedIn) => isLoggedIn ? 'Akriti' : 'Guest'} />
         <User render={(isLoggedIn) => isLoggedIn ? 'Akriti' : 'Guest'} /> */}
 
-        {/* <ClickCounter name="Akriti" />
+{/* <ClickCounter name="Akriti" />
         <HoverCounter /> */}
 
-        {/* <ErrorBoundary>
+{/* <ErrorBoundary>
           <Hero heroName="Batman" />
         </ErrorBoundary>
         <ErrorBoundary>
@@ -183,33 +223,33 @@ class App extends Component {
           <Hero heroName="Joker" />
         </ErrorBoundary> */}
 
-        {/* <PortalDemo /> */}
-        {/* <FRParentInput /> */}
-        {/* <FocusInput /> */}
-        {/* <RefsDemo /> */}
-        {/* <ParentComp /> */}
-        {/* <PureComp /> */}
-        {/* <Table /> */}
-        {/* <FragmentDemo /> */}
-        {/* <LifecycleA /> */}
-        {/* <Form /> */}
-        {/* <h1 className='error'>Error</h1>
+{/* <PortalDemo /> */ }
+{/* <FRParentInput /> */ }
+{/* <FocusInput /> */ }
+{/* <RefsDemo /> */ }
+{/* <ParentComp /> */ }
+{/* <PureComp /> */ }
+{/* <Table /> */ }
+{/* <FragmentDemo /> */ }
+{/* <LifecycleA /> */ }
+{/* <Form /> */ }
+{/* <h1 className='error'>Error</h1>
         <h1 className={styles.success}>Success</h1>
         <Inline />
         <Stylesheet primary={true} /> */}
-        {/* <NameList /> */}
-        {/* Event Handler
+{/* <NameList /> */ }
+{/* Event Handler
         {/* <ClassClick />
         <FunctionClick /> */}
 
-        {/* <EventBind /> */}
+{/* <EventBind /> */ }
 
-        {/* <ParentComponent /> */}
+{/* <ParentComponent /> */ }
 
-        {/* Conditional rendering
+{/* Conditional rendering
         <UserGreeting /> */}
 
-        {/* <h1>Functional component</h1>
+{/* <h1>Functional component</h1>
         <Greet name="Bruce" heroName="Batman">
           <p>This is children prop</p>
         </Greet>
@@ -221,22 +261,22 @@ class App extends Component {
         <Welcome name="Bruce" heroName="Batman" />
         <Welcome name="Clark" heroName="Superman" />
         <Welcome name="Diana" heroName="Wonder Woman" /> */}
-        {/* <Hello /> */}
-        {/* State */}
+{/* <Hello /> */ }
+{/* State */ }
 
-        {/* <Message /> */}
+{/* <Message /> */ }
 
-        {/* For Destructuring
+{/* For Destructuring
         <Greet name="Diana" heroName="Wonder Woman" />
         <Welcome name="Bruce" heroName="Batman" /> */}
 
 
-        {/* For setState
+{/* For setState
         <Counter /> */}
 
-      </div>
-    );
-  }
-}
+//       </div>
+//     );
+//   }
+// }
 
 export default App;
