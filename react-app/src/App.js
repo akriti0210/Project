@@ -69,6 +69,7 @@ import DocTitleTwo from './hookComponent/DocTitleTwo';
 import CustomCounterOne from './hookComponent/CustomCounterOne';
 import CustomCounterTwo from './hookComponent/CustomCounterTwo';
 import UserForm from './hookComponent/UserForm';
+import AutocorrectApp from './Practice/AutocorrectApp';
 
 // function App() {
 //   return (
@@ -133,11 +134,17 @@ function App() {
 function App() {
   return (
     <div className='App'>
+
+      {/* Practice */}
+
+      <AutocorrectApp />
+
+
       {/* Hooks */}
 
       {/* Custom Hook */}
 
-      <UserForm />
+      {/* <UserForm /> */}
       {/* <CustomCounterOne />
       <CustomCounterTwo /> */}
       {/* <DocTitleOne />
