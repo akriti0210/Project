@@ -70,6 +70,8 @@ import CustomCounterOne from './hookComponent/CustomCounterOne';
 import CustomCounterTwo from './hookComponent/CustomCounterTwo';
 import UserForm from './hookComponent/UserForm';
 import AutocorrectApp from './Practice/AutocorrectApp';
+import Folder from './Practice/Folder';
+import explorer from './Practice/folderData';
 
 // function App() {
 //   return (
@@ -137,6 +139,7 @@ function App() {
 
       {/* Practice */}
 
+      <Folder explorer={explorer} />
       <AutocorrectApp />
 
 
